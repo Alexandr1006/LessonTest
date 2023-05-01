@@ -41,13 +41,16 @@ public class User {
         }
     }
     public void validateEmail(String email){
-        if (!login.contains(char1) || !email.contains(char2) || email == null){
+        if (!email.contains(char1) || !email.contains(char2) || email == null){
             throw new IllegalArgumentException("Не корректный email");
         }
     }
     public void validateUserNameEmail(String login, String email){
         validateName(login);
         validateEmail(email);
+        if(login.equals(email)){
+            throw new IllegalArgumentException("Email is the same as name");
+        }
     }
 
     @Override

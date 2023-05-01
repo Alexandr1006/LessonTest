@@ -25,4 +25,9 @@ public class UserTest {
     public void testCreateUserWithoutParameters() {
         assertTrue(user1.getEmail() == null && user1.getLogin() == null);
     }
+
+    @Test
+    public void tesrNotValidUserParametrsThrowException(){
+        assertThrows(IllegalArgumentException.class, ()-> new User("test","test.com"));
+    }
 }
